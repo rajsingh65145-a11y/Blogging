@@ -1,31 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%-include('./partials/head')%>
-    <title>Add Blog</title>
+    <%- include('./partials/head') %>
+    <title>Create New Blog - Blogify</title>
 </head>
 <body>
-    <%-include('./partials/nav')%>
-    <div class="container mt-4">
-        <form  action="/blog" method="post" enctype="multipart/form-data">
-            <div class="mb3">
-                <label for="coverImage" class="form-label">Cover Image</label>
-                <input class="form-control" type="file" id="coverImage"  name="coverImage" placeholder="Default input" aria-label="coverImage">
+    <%- include('./partials/nav') %>
+
+    <div class="container my-5" style="max-width: 760px;">
+        <div class="card custom-card p-4 p-md-5 border-0 shadow-sm">
+            <div class="text-center mb-4">
+                <div class="d-inline-flex align-items-center justify-content-center bg-primary bg-opacity-10 text-primary rounded-circle mb-3" style="width: 60px; height: 60px;">
+                    <i class="bi bi-pencil-square fs-3"></i>
+                </div>
+                <h2 class="fw-bold">Create New Blog</h2>
+                <p class="text-muted">Express your thoughts, knowledge, and stories with the world.</p>
             </div>
-            <div class="mb3">
-                <label for="title" class="form-label">Title</label>
-                <input class="form-control" type="text" id="title"  name="title" placeholder="Default input" aria-label="Default input example">
-            </div>
-            <div class="mb3">
-                <label for="body" class="form-label">Body</label>
-                <textarea class="form-control"  id="body" name="body" aria-label="With textarea"></textarea>
-            </div>
-            <div class="mb3">
-               <button class="btn btn-primary">Submit</button>
-            </div>
-        </form>
-</div>
+
+            <form action="/blog" method="post" enctype="multipart/form-data">
+                <div class="mb-4">
+                    <label for="coverImage" class="form-label fw-semibold"><i class="bi bi-image me-1"></i> Cover Image</label>
+                    <input class="form-control" type="file" id="coverImage" name="coverImage" required>
+                    <div class="form-text">Choose an attractive cover photo for your blog.</div>
+                </div>
+
+                <div class="mb-4">
+                    <label for="title" class="form-label fw-semibold"><i class="bi bi-type-h1 me-1"></i> Blog Title</label>
+                    <input class="form-control" type="text" id="title" name="title" placeholder="Give your blog a catchy title" required>
+                </div>
+
+                <div class="mb-4">
+                    <label for="body" class="form-label fw-semibold"><i class="bi bi-text-paragraph me-1"></i> Content</label>
+                    <textarea class="form-control" id="body" name="body" rows="9" placeholder="Write your story here..." required></textarea>
+                </div>
+
+                <div class="d-grid mt-4">
+                    <button type="submit" class="btn btn-primary py-3 fs-6 rounded-pill">
+                        <i class="bi bi-send-fill me-2"></i> Publish Blog
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
-    <%-include('./partials/scripts')%>
+
+    <%- include('./partials/scripts') %>
 </body>
 </html>
