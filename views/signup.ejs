@@ -1,33 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%-include('./partials/head')%>
-    <title>Signup</title>
+    <%- include('./partials/head') %>
+    <title>Create Account - Blogify</title>
 </head>
 <body>
-    <%-include('./partials/nav')%>
-<div class="container mt-4">
-    <form action="/user/signup" method="post">
+    <%- include('./partials/nav') %>
 
-        <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Full name</label>
-    <input type="text" class="form-control" id="fullName" name="fullName" aria-describedby="fullName">
-   
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input  name="password" type="password" class="form-control" id="exampleInputPassword1">
-  </div>
- 
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-</div>
+    <div class="container my-5" style="max-width: 480px;">
+        <div class="card custom-card p-4 p-md-5 border-0 shadow-sm">
+            <div class="text-center mb-4">
+                <div class="d-inline-flex align-items-center justify-content-center bg-primary bg-opacity-10 text-primary rounded-circle mb-3" style="width: 56px; height: 56px;">
+                    <i class="bi bi-person-plus fs-3"></i>
+                </div>
+                <h3 class="fw-bold">Create Account</h3>
+                <p class="text-muted small">Join Blogify and start writing today</p>
+            </div>
 
-    <%-include('./partials/scripts')%>
+            <form action="/user/signup" method="post">
+                <div class="mb-3">
+                    <label for="fullName" class="form-label fw-semibold">Full name</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0 text-muted" style="border-radius: 12px 0 0 12px;"><i class="bi bi-person"></i></span>
+                        <input type="text" class="form-control border-start-0 ps-0" id="fullName" name="fullName" placeholder="John Doe" style="border-radius: 0 12px 12px 0;" required>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label fw-semibold">Email address</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0 text-muted" style="border-radius: 12px 0 0 12px;"><i class="bi bi-envelope"></i></span>
+                        <input type="email" name="email" class="form-control border-start-0 ps-0" id="exampleInputEmail1" placeholder="name@example.com" style="border-radius: 0 12px 12px 0;" required>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label for="exampleInputPassword1" class="form-label fw-semibold">Password</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0 text-muted" style="border-radius: 12px 0 0 12px;"><i class="bi bi-lock"></i></span>
+                        <input name="password" type="password" class="form-control border-start-0 ps-0" id="exampleInputPassword1" placeholder="••••••••" style="border-radius: 0 12px 12px 0;" required>
+                    </div>
+                </div>
+
+                <div class="d-grid mb-3">
+                    <button type="submit" class="btn btn-primary py-2 rounded-pill fw-semibold">Sign Up</button>
+                </div>
+            </form>
+
+            <div class="text-center mt-3 pt-3 border-top">
+                <span class="text-muted small">Already have an account? </span>
+                <a href="/user/signin" class="text-primary fw-semibold small text-decoration-none">Sign In</a>
+            </div>
+        </div>
+    </div>
+
+    <%- include('./partials/scripts') %>
 </body>
 </html>
